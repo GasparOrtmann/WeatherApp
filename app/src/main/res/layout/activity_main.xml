@@ -113,14 +113,18 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    android:background="#8EA7E9">
 
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp">
+<!--                        android:tint="#FFF"-->
+
+<!--                        android:src="@drawable/sunrise"-->
 
                     </ImageView>
 
@@ -142,15 +146,120 @@
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp">
+                        android:textSize="14sp"
+                        android:text="6:00am">
 
                     </TextView>
                 </LinearLayout>
+                <Space android:layout_width="10dp"
+                    android:layout_height="wrap_content">
+
+                </Space>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:background="#8EA7E9">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp">
+                        <!--                        android:tint="#FFF"-->
+
+                        <!--                        android:src="@drawable/sunrise"-->
+
+                    </ImageView>
+
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content">
+
+                    </Space>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sunrise"
+                        android:textSize="12sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/wind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="12:00pm">
+
+                    </TextView>
+                </LinearLayout>
+                <Space android:layout_width="10dp"
+                    android:layout_height="wrap_content">
+
+                </Space><LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="#8EA7E9">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp">
+                    <!--                        android:tint="#FFF"-->
+
+                    <!--                        android:src="@drawable/sunrise"-->
+
+                </ImageView>
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content">
+
+                </Space>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunrise"
+                    android:textSize="12sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/sunset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="18:00am">
+
+                </TextView>
+            </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ProgressBar>
+    <TextView
+        android:id="@+id/errortext"
+        android:layout_centerInParent="true"
+        android:text="Something went wrong"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
 
 </RelativeLayout>
