@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                 val temp = main.getString("temp")+"°C"
                 val tempMin = "Min Temp: " + main.getString("temp_min")+"°C"
                 val tempMax = "Max Temp: " + main.getString("temp_max")+"°C"
+                val feelslike = "Feels like: " + main.getString("feels_like")+"°C"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise:Long = sys.getLong("sunrise")
@@ -75,9 +76,12 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.temp).text = temp
                 findViewById<TextView>(R.id.temp_max).text = tempMax
                 findViewById<TextView>(R.id.temp_min).text = tempMin
+                findViewById<TextView>(R.id.feelslike).text = feelslike
                 findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
                 findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
+                findViewById<TextView>(R.id.pressure).text = pressure
+                findViewById<TextView>(R.id.humidity).text = humidity
 
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
