@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import org.json.JSONObject
+import java.math.RoundingMode
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
@@ -58,10 +59,10 @@ class MainActivity : AppCompatActivity() {
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
                 val updatedAt:Long = jsonObj.getLong("dt")
                 val updatedAtText = "Updated at: "+SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(updatedAt*1000))
-                val temp = main.getString("temp")+"°C"
-                val tempMin = "Min Temp: " + main.getString("temp_min")+"°C"
-                val tempMax = "Max Temp: " + main.getString("temp_max")+"°C"
-                val feelslike = "Feels like: " + main.getString("feels_like")+"°C"
+                val temp = main.getString("temp")
+                val tempMin =  main.getString("temp_min")
+                val tempMax = main.getString("temp_max")
+                val feelslike = main.getString("feels_like")
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise:Long = sys.getLong("sunrise")
@@ -73,10 +74,11 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.address).text = address
                 findViewById<TextView>(R.id.updated_at).text = updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
-                findViewById<TextView>(R.id.temp).text = temp
-                findViewById<TextView>(R.id.temp_max).text = tempMax
-                findViewById<TextView>(R.id.temp_min).text = tempMin
-                findViewById<TextView>(R.id.feelslike).text = feelslike
+                findViewById<TextView>(R.id.temp).text =
+                    temp.toBigDecimal().setScale(1,RoundingMode.UP).toInt().toString() + "°C"
+                findViewById<TextView>(R.id.temp_max).text = "Max Temp: " + tempMax.toBigDecimal().setScale(1,RoundingMode.UP).toInt().toString() + "°C"
+                findViewById<TextView>(R.id.temp_min).text = "Min Temp: " + tempMin.toBigDecimal().setScale(1,RoundingMode.UP).toInt().toString() + "°C"
+                findViewById<TextView>(R.id.feelslike).text = "Feels like: " + feelslike.toBigDecimal().setScale(1,RoundingMode.UP).toInt().toString() + "°C"
                 findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
                 findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
